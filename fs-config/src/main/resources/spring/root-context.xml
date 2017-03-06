@@ -27,5 +27,7 @@
 
 	<import resource="classpath:spring/data-access-context.xml" />
 	<!-- <import resource="classpath:spring/spring-redis.xml"/> -->
+	<import resource="classpath:spring/dubbo-reference-book.xml" />
+	
 
 </beans>

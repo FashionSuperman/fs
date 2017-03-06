@@ -83,6 +83,13 @@
 			<version>${project.version}</version>
 		</dependency>
 
+		<!-- fs-dubbo-facet -->
+		<dependency>
+			<groupId>com.fashionSuperman</groupId>
+			<artifactId>fs-dubbo-facet</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>fs-web</finalName>

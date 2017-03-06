@@ -86,4 +86,6 @@
 	<bean id="commonSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close" scope="prototype">
 		<constructor-arg index="0" ref="commonSessionFactory" />
 	</bean>
+	
+	
 </beans>
