@@ -20,7 +20,7 @@
 	<!-- 配置要扫描的包 -->
 	<context:component-scan base-package="com.fashionSuperman.fs.dubbo.impl"/>
 	
-	<context:property-placeholder location="classpath:dubbo.properties"/>
+	<context:property-placeholder location="classpath:config/dubbo.properties"/>
 		
 	<!-- proxy-target-class默认"false",更改为"ture"使用CGLib动态代理 -->  
 	<aop:aspectj-autoproxy proxy-target-class="true" />

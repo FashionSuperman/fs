@@ -1,6 +1,7 @@
 package com.fashionSuperman.fs.dubbo.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
+
 import com.fashionSuperman.fs.dubbo.facet.entity.Book;
 import com.fashionSuperman.fs.dubbo.facet.inter.BookIterface;
 @Service
@@ -20,5 +21,6 @@ public class BookImpl implements BookIterface{
 	public int addBook(Book book) {
 		return 1;
 	}
-
+	
+	
 }

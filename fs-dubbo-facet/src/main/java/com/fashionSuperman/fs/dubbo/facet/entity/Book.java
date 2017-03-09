@@ -1,6 +1,10 @@
 package com.fashionSuperman.fs.dubbo.facet.entity;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private String bookId;
 	private String bookeName;
 	private String author;

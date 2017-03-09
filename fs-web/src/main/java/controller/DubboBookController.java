@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,7 +15,7 @@ public class DubboBookController {
 	BookIterface bookI;
 	@RequestMapping("/queryBook")
 	@ResponseBody
-	public Book queryBook(String bookId){
+	public Book queryBook(@RequestBody String bookId){
 		return bookI.queryBook(bookId);
 	};
 }

@@ -11,6 +11,8 @@
 	<!-- 多注册中心配置，竖号分隔表示同时连接多个不同注册中心，同一注册中心的多个集群地址用逗号分隔 -->
 	<!-- 注册中心地址 -->
 	<!-- <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" /> -->
+	
+	<!-- 广播地址作为注册中心 -->
 	<dubbo:registry address="${dubbo.multi.address}" />
 
 	<!-- 监控中心配置，protocol="registry"，表示从注册中心发现监控中心地址 -->
