@@ -91,6 +91,11 @@
 			<artifactId>spring-jms</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+		</dependency>
+
 		<!-- servlet api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -103,7 +108,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-	
+
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
 			<artifactId>javax.ws.rs-api</artifactId>

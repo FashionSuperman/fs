@@ -47,6 +47,12 @@
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
 
+		<!-- activemq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+		</dependency>
+
 		<!-- hamcrest -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>

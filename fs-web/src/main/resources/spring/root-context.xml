@@ -13,7 +13,7 @@
 		http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:property-placeholder
-		location="classpath:jdbc.properties,classpath:public_system.properties,classpath:redis.properties"
+		location="classpath:jdbc.properties,classpath:public_system.properties,classpath:redis.properties,classpath:jms.properties"
 		ignore-unresolvable="true" />
 	<!-- 必须放到root-context,放到servlet-content事务无效 -->
 	<context:component-scan base-package="com.fashionSuperman.fs.dao" />
@@ -24,10 +24,13 @@
 
 	<!-- aop -->
 	<bean id="logAspect" class="com.fashionSuperman.fs.core.aspect.LogAspect"></bean>
+	<bean id="JMSAspect" class="com.fashionSuperman.fs.core.aspect.JMSAspect"></bean>
 
 	<import resource="classpath:spring/data-access-context.xml" />
+	<import resource="classpath:spring/spring-jms-provider.xml" />
 	<!-- <import resource="classpath:spring/spring-redis.xml"/> -->
-	<import resource="classpath:spring/dubbo-reference-book.xml" />
+	
+	<!-- <import resource="classpath:spring/dubbo-reference-book.xml" /> -->
 	
 
 </beans>
