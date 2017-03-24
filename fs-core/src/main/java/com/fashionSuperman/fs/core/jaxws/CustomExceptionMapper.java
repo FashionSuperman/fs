@@ -32,7 +32,8 @@ public class CustomExceptionMapper implements ExceptionMapper<Throwable> {
 			}
 		} else {
 			message = exception.getMessage();
-			if(StringUtil.isNullOrEmpty(message)){
+			exception.printStackTrace();
+			if(StringUtil.isNullOrEmpty(message) || message.length() > 100){
 				message = "服务器异常";
 			}
 		}

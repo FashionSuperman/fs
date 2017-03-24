@@ -15,6 +15,7 @@ public class BookConverter implements JMSConverter<BookConvertered, Book>{
 		bookConvertered.setId(UUID.randomUUID().toString());
 		bookConvertered.setName(obj.getName());
 		bookConvertered.setPrice(obj.getPrice());
+		bookConvertered.setUsers(obj.getUsers());
 		return bookConvertered;
 	}
 

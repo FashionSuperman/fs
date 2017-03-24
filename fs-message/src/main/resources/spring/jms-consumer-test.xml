@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd"> 
+		
+    
+    
+    
+     <!-- 配置JMS连接工厂 -->  
+    <bean id="jmsConnectionFactory"  
+        class="org.springframework.jms.connection.CachingConnectionFactory">  
+        <!-- Session缓存数量 -->  
+        <property name="sessionCacheSize" value="${sessionCacheSize}" />  
+        <!-- 接收者ID -->  
+        <property name="clientId" value="${clientId_test}" />  
+        <property name="targetConnectionFactory">  
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">  
+                <!-- MQ地址 -->  
+                <property name="brokerURL" value="${brokerURL}" />  
+            </bean>  
+        </property>  
+    </bean>  
+  
+    
+	<!-- 测试主题 -->
+	<bean id="myDestination_Test_Topic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="topic_test" />
+	</bean>
+    <!-- 测试队列 -->
+	<bean id="myDestination_Test_Queue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="queue_test" />
+	</bean>
+    
+    <!-- 测试主题侦听 -->
+    <bean id="receiveMessageListener_Test_Topic" class="com.fashionSuperman.fs.core.jms.consumer.ReceiveMessageListener">
+        <property name="messageHandlerList">
+            <list>
+                <!-- 注册账号消息 -->
+                <bean class="com.baiyyy.core.mq.receive.MessageHandler">
+                    <property name="messageName" value="com.baiyyy.z1.service.account.service.addUserAccountService"></property>
+                    <!-- <property name="messageConvert" ref="registerUserAccountConvert"></property> -->
+                    <property name="messageService" ref="registerUserAccountService"></property>
+                </bean>
+                <!-- 添加代理商 -->
+                <bean class="com.baiyyy.core.mq.receive.MessageHandler">
+                    <property name="messageName" value="com.baiyyy.z1.service.agent.service.AddAgentDetailService"></property>
+                    <property name="messageService" ref="registerUserAccountService"></property>
+                    <property name="paramName" value="com.baiyyy.z1.service.account.message.AddMesUserAccount"></property>
+                </bean>
+                
+	        </list>
+        </property>
+    </bean>
+    
+  
+    
+    <!-- 测试主题侦听器容器 -->
+    <bean id="myListenerContainer_Test_Topic"  
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">  
+        <property name="connectionFactory" ref="accountConnectionFactory" />  
+        <!-- 发布订阅模式 -->  
+        <property name="pubSubDomain" value="true"/>  
+        <!-- 消息持久化 -->  
+        <property name="subscriptionDurable" value="true"/>  
+        <!-- <property name="receiveTimeout" value="${receiveTimeout}"/>   -->
+        <!-- 接收者ID -->  
+        <property name="clientId" value="${clientId_test}" />  
+        <property name="durableSubscriptionName" value="${clientId_test}"/>  
+        <property name="destination" ref="myDestination_Test_Topic" />  
+        <property name="messageListener" ref="receiveMessageListener_Test_Topic" />  
+    </bean> 
+    
+</beans>

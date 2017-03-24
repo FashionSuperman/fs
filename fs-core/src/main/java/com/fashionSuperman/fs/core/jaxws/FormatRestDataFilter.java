@@ -36,7 +36,7 @@ public class FormatRestDataFilter implements ContainerResponseFilter{
 //		OutputStream entityStream = responseContext.getEntityStream();
 		
 		ResponseMessage<Object> response = new ResponseMessage<>();
-		response.setResponseData(entity);
+		response.setResponseData(entity == null ? "":entity);
 		response.setMessage("");
 		responseContext.setEntity(response);
 		

@@ -13,6 +13,7 @@ import com.fashionSuperman.fs.core.jms.JMSConstant;
 import com.fashionSuperman.fs.core.jms.SendMessage;
 import com.fashionSuperman.fs.core.jms.SendMessageBody;
 import com.fashionSuperman.fs.core.jms.SendMessageHeader;
+import com.fashionSuperman.fs.core.util.StringUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -40,9 +41,10 @@ public class DefaultMessageCreator implements MessageCreator {
 		if(sendMessageBody != null && sendMessageBody.getMessageBody() != null){
 			String data;
 			try {
-				data = objectMapper.writeValueAsString(sendMessageBody.getMessageBody());
+//				data = objectMapper.writeValueAsString(sendMessageBody.getMessageBody());
+				data = StringUtil.toJson(sendMessageBody.getMessageBody());
 				msg.setText(data);
-			} catch (JsonProcessingException e) {
+			} catch (Exception e) {
 				logger.error("消息转化失败");
 				e.printStackTrace();
 				return null;
