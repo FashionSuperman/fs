@@ -12,7 +12,6 @@ public class OpetionsMethodFilter implements ContainerRequestFilter{
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		if(requestContext.getMethod().equals("OPTIONS")){
 			Response response = Response.status(204)
-			response = Response.status(204)
 					.header("Access-Control-Allow-Method", "GET,POST")
 					.header("Access-Control-Allow-Origin", "*")
 					.header("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With")
