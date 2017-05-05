@@ -123,6 +123,8 @@
 		<geronimo-jms_1.1_spec.version>1.1.1</geronimo-jms_1.1_spec.version>
 		
 		<jstl.version>1.2</jstl.version>
+		
+		<codehaus.jackson.version>1.9.13</codehaus.jackson.version>
 
 
 	</properties>
@@ -385,6 +387,12 @@
 				<artifactId>jackson-databind</artifactId>
 				<version>${jackson.version}</version>
 			</dependency>
+			
+			<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>${codehaus.jackson.version}</version>
+		</dependency>
 		</dependencies>
 	</dependencyManagement>
 

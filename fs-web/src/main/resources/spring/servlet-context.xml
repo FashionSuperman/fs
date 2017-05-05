@@ -11,9 +11,17 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!-- 注解驱动 -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService"/>
     
     <context:component-scan base-package="controller" />
+    
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">    
+        <property name="converters">    
+            <list>    
+                <bean class="com.fashionSuperman.fs.core.mvc.converter.MvcDateConverter" />    
+            </list>    
+        </property>    
+    </bean> 
 		
 	<!-- json序列化去除null值，赋默认值-->
 	<mvc:annotation-driven>

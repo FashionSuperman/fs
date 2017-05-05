@@ -25,7 +25,7 @@
 	<!-- aop -->
 	<bean id="logAspect" class="com.fashionSuperman.fs.core.aspect.LogAspect"></bean>
 	<bean id="JMSAspect" class="com.fashionSuperman.fs.core.aspect.JMSAspect"></bean>
-
+	
 	<import resource="classpath:spring/data-access-context.xml" />
 	<import resource="classpath:spring/spring-jms-provider.xml" />
 	<!-- <import resource="classpath:spring/spring-redis.xml"/> -->
