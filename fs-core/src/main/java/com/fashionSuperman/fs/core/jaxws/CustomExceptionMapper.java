@@ -55,7 +55,7 @@ public class CustomExceptionMapper implements ExceptionMapper<Exception> {
 		
 		logger.error(message);
 
-		return Response.status(Response.Status.NOT_FOUND).entity(responseMessage)
+		return Response.status(Response.Status.OK).entity(responseMessage)
 				.type("application/json").build();
 	}
 

@@ -28,6 +28,9 @@ public class FormatRestDataFilter implements ContainerResponseFilter{
 //		System.out.println("the message date is :"+DateUtil.convertDateToString(date));
 		
 		Object entity = responseContext.getEntity();
+		if(entity instanceof ResponseMessage){//已经抛出业务异常
+			return;
+		}
 //		System.out.println("the entity class is : " + entity.getClass());
 		
 //		Class<?> entityClass = responseContext.getEntityClass();
