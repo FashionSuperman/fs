@@ -30,7 +30,7 @@
 	<import resource="classpath:spring/spring-jms-provider.xml" />
 	<!-- <import resource="classpath:spring/spring-redis.xml"/> -->
 	
-	<!-- <import resource="classpath:spring/dubbo-reference-book.xml" /> -->
+	<import resource="classpath:spring/dubbo-reference-book.xml" />
 	
 
 </beans>

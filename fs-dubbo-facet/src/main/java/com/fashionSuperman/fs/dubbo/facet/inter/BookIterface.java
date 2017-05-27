@@ -1,9 +1,10 @@
 package com.fashionSuperman.fs.dubbo.facet.inter;
 
+import com.fashionSuperman.fs.core.exception.BizException;
 import com.fashionSuperman.fs.dubbo.facet.entity.Book;
 
 public interface BookIterface {
-	public Book queryBook(String id);
+	Book queryBook(String id) throws BizException;
 	
-	public int addBook(Book book);
+	int addBook(Book book) throws BizException;
 }

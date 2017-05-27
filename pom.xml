@@ -125,7 +125,10 @@
 		<jstl.version>1.2</jstl.version>
 		
 		<codehaus.jackson.version>1.9.13</codehaus.jackson.version>
-
+		
+		
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<zkclient.version>0.4</zkclient.version>
 
 	</properties>
 
@@ -171,6 +174,24 @@
 				<artifactId>dubbo</artifactId>
 				<version>${com.alibaba.dubbo}</version>
 			</dependency>
+			
+			<!-- Zookeeper 用于分布式服务管理 -->
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>${zookeeper.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.101tec</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>${zkclient.version}</version>
+			</dependency>
+			<dependency>
+	            <groupId>com.github.sgroschupf</groupId>
+	            <artifactId>zkclient</artifactId>
+	            <version>${zkclient.version}</version>
+        	</dependency>
+			
 			<!-- spring core -->
 			<dependency>
 				<groupId>org.springframework</groupId>

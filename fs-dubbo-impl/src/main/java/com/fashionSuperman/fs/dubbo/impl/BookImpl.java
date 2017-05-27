@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.fashionSuperman.fs.dubbo.facet.entity.Book;
 import com.fashionSuperman.fs.dubbo.facet.inter.BookIterface;
-@Service
+@Service("bookImpl")
 public class BookImpl implements BookIterface{
 
 	@Override

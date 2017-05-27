@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fashionSuperman.fs.dubbo.facet.entity.Book;
 import com.fashionSuperman.fs.dubbo.facet.inter.BookIterface;
 
-//@Controller("/DubboBook")
-//public class DubboBookController {
-//	@Autowired
-//	BookIterface bookI;
-//	@RequestMapping("/queryBook")
-//	@ResponseBody
-//	public Book queryBook(@RequestBody String bookId){
-//		return bookI.queryBook(bookId);
-//	};
-//}
+@Controller("/DubboBook")
+public class DubboBookController {
+	@Autowired
+	private BookIterface bookI;
+	@RequestMapping("/queryBook")
+	@ResponseBody
+	public Book queryBook(@RequestBody String bookId){
+		return bookI.queryBook(bookId);
+	};
+}

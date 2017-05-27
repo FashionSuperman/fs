@@ -17,6 +17,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<!-- dubbox -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${com.alibaba.dubbo}</version>
+		</dependency>
 		<!-- fs-core -->
 		<dependency>
 			<groupId>com.fashionSuperman</groupId>
