@@ -1629,4 +1629,15 @@ public class JedisUtil {
 		}
 	}
 
+	public JedisPool getJedisPool() {
+		return jedisPool;
+	}
+
+	public void setJedisPool(JedisPool jedisPool) {
+		this.jedisPool = jedisPool;
+	}
+	
+	
+	
+
 }
