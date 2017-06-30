@@ -8,9 +8,7 @@
 		<artifactId>fs-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.fashionSuperman</groupId>
 	<artifactId>fs-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>fs-core</name>
 	<url>http://maven.apache.org</url>
 	<properties>
@@ -43,6 +41,19 @@
 			<artifactId>httpclient</artifactId>
 			<version>${httpclient.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.4.6</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
