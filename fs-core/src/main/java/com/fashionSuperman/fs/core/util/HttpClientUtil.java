@@ -80,6 +80,48 @@ public class HttpClientUtil {
 
 		return responseData;
 	}
+	
+	
+	
+	/**
+	 * xml格式调用接口
+	 * @param url
+	 * @param parameters
+	 * @return
+	 */
+	public static String doPostXml(String url, String parameters) {
+		String responseData = "";
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpPost httppost = new HttpPost(url);
+
+		RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(TIME_OUT)
+				.setConnectionRequestTimeout(TIME_OUT).setSocketTimeout(TIME_OUT).build();
+		httppost.setConfig(requestConfig);
+		httppost.addHeader("Content-type", "application/xml");
+		httppost.setHeader("Accept", "application/xml");
+		if (StringUtil.isNotEmpty(parameters)) {
+			httppost.setEntity(new StringEntity(parameters, Charset.forName("UTF-8")));
+		}
+		try {
+
+			CloseableHttpResponse response = httpclient.execute(httppost);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				responseData = EntityUtils.toString(entity, "UTF-8");
+			}
+
+		} catch (Exception e) {
+			throw new BizException(StatusCode.FAILURE_CALL_AGENT, "调用接口失败！");
+		} finally {
+			try {
+				httpclient.close();
+			} catch (IOException e) {
+				throw new BizException(StatusCode.FAILURE_CALL_AGENT, "关闭接口失败！");
+			}
+		}
+
+		return responseData;
+	}
 	/**
 	 * 统一发送get请求
 	 * @param url
