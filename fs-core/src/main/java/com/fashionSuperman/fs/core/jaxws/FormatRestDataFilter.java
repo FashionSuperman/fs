@@ -22,6 +22,11 @@ public class FormatRestDataFilter implements ContainerResponseFilter{
 			throws IOException {
 		
 		MultivaluedMap<String, String> headers = requestContext.getHeaders();
+		
+		if(requestContext.getUriInfo().getAbsolutePath().toString().contains("WXPay")){
+			return;
+		}
+		
 		if(headers.containsKey("jump")){
 			return;
 		}
