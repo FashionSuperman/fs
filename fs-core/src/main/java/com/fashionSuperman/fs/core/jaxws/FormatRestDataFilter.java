@@ -27,6 +27,13 @@ public class FormatRestDataFilter implements ContainerResponseFilter{
 			return;
 		}
 		
+		if(requestContext.getUriInfo().getAbsolutePath().toString().contains("loginwx")){
+			return;
+		}
+		if(requestContext.getUriInfo().getAbsolutePath().toString().contains("Test")){
+			return;
+		}
+		
 		if(headers.containsKey("jump")){
 			return;
 		}
